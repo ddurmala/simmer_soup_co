@@ -5,6 +5,7 @@ import Header from './components/Header'
 
 import Home from './pages/Home'
 import Gallery from './pages/Gallery'
+import Order from './pages/Order'
 
 
 function App() {
@@ -17,8 +18,10 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          /
+
           <Route path="/gallery" element={<Gallery />} />
+
+          <Route path="/order" element={<Order />} />
 
         </Routes>
       </main>

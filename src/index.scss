@@ -5,6 +5,11 @@
     font-style: normal;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Rammetto+One&family=Sriracha&display=swap');
+
+$plainfont: "Sriracha",
+    cursive;
+
 // Resets
 * {
     margin: 0;
@@ -35,6 +40,9 @@ button {
 }
 
 // Custom Styles
+
+// Global Classess
+
 // Header
 
 .logo {
@@ -60,6 +68,12 @@ button {
     }
 }
 
+// Homepage
+
+.about {
+    font-family: $plainfont;
+    font-size: 3vh;
+}
 
 // SoupItem Cards
 
@@ -68,9 +82,42 @@ button {
     display: grid;
     grid-template-columns: repeat(2, 2fr);
     gap: 20px;
+    font-family: $plainfont;
 
     img {
         height: 100%;
         aspect-ratio: 1/1;
+    }
+}
+
+// Order Page
+
+form {
+    margin: 15px auto 0;
+    width: 60%;
+    align-items: center;
+    font-family: $plainfont;
+
+    .form-input {
+        margin: 10px 0;
+        padding: 10px 20px;
+        width: 100%;
+    }
+
+    .soup-options {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .checkbox {
+            margin-right: 8px;
+        }
+    }
+
+    button {
+        margin: 10px 0;
+        padding: 10px;
+        width: 50%;
     }
 }
