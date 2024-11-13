@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'Magnolia Script';
+    src: url('../dist/fonts/Magnolia\ Script.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Resets
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(33, 31, 31);
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    background-color: rgb(250, 243, 238);
+    font-family: 'Magnolia Script', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(23, 21, 21);
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+// Custom Styles
+// Header
+
+.logo {
+    height: 35vh;
+    width: auto;
+}
+
+.header {
+    background-color: #ebe5d7;
+
+    .nav-links {
+        font-size: 3vh;
+
+        .nav-link {
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &.active {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+// SoupItem Cards
+
+// Gallery
+.soup-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 20px;
+
+    img {
+        height: 100%;
+        aspect-ratio: 1/1;
+    }
+}
