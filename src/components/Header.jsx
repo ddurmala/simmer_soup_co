@@ -13,6 +13,8 @@ function Header() {
                 <NavLink to="/" className='nav-link mx-3'>Home</NavLink>
 
                 <NavLink to="/gallery" className='nav-link mx-3'>Gallery</NavLink>
+
+                <NavLink to="/order" className='nav-link mx-3'>Order</NavLink>
             </nav>
         </header>
     )
