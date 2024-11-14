@@ -2,10 +2,10 @@
 import SoupItem from '../components/SoupItem'
 
 // Image Imports
-import chickenorzo from '../../dist/assets/chicken_orzo.jpg'
-import loadedpotato from '../../dist/assets/loaded_baked_potato.jpg'
-import butternut from '../../dist/assets/roast_butternut_squash.jpg'
-import bouillon from '../../dist/assets/bouillon_cubes.jpg'
+import chickenorzo from '../assets/chicken_orzo.jpg'
+import loadedpotato from '../assets/loaded_baked_potato.jpg'
+import butternut from '../assets/roast_butternut_squash.jpg'
+import bouillon from '../assets/bouillon_cubes.jpg'
 
 const soups = [
     {

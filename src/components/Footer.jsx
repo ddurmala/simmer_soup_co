@@ -6,7 +6,7 @@ function Footer() {
                 <p className="is-size-5 has-text-weight-semibold mx-3">Simmer Soup Co.</p>
 
                 <div className="social-links mx-3">
-                    <a href="https://instagram.com" target="_blank">
+                    <a href="https://instagram.com">
                         <i className="fab fa-instagram"></i>
                     </a>
                 </div>
