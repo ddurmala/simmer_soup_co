@@ -8,7 +8,7 @@ function SoupItem(props) {
             <div className="card-image">
                 <figure className="image is-4by3">
                     <img
-                        src={props.data.image} alt='soup photo'
+                        src={props.data.image} alt='soup'
                     />
                 </figure>
             </div>
