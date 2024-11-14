@@ -24,6 +24,13 @@ body,
     height: 100%;
     background-color: rgb(250, 243, 238);
     font-family: 'Magnolia Script', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
 }
 
 a {
@@ -41,12 +48,10 @@ button {
 
 // Custom Styles
 
-// Global Classess
-
 // Header
 
 .logo {
-    height: 35vh;
+    height: 30vh;
     width: auto;
 }
 
@@ -92,6 +97,17 @@ button {
 
 // Order Page
 
+.alert-message {
+    font-family: $plainfont;
+    font-size: 3vh;
+    margin: 5% 15%;
+
+    .alert-title {
+        font-size: 4vh;
+        margin-top: 5%;
+    }
+}
+
 form {
     margin: 15px auto 0;
     width: 60%;
@@ -104,20 +120,74 @@ form {
         width: 100%;
     }
 
+    .note {
+        font-size: 2.2vh;
+        margin-left: 10px;
+    }
+
     .soup-options {
         width: 100%;
         display: flex;
         flex-direction: column;
         gap: 10px;
+    }
 
-        .checkbox {
-            margin-right: 8px;
-        }
+    .dropdown {
+        margin-right: 10px;
     }
 
     button {
         margin: 10px 0;
         padding: 10px;
         width: 50%;
+    }
+}
+
+// Footer
+.footer {
+    width: 100%;
+    font-family: $plainfont;
+    padding: 1em 0;
+    margin-top: auto;
+}
+
+.footer .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+
+    .social-links {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+    }
+
+    p,
+    a {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+// Media Queries
+
+@media(min-width: 800px) {
+
+    .welcome {
+        text-align: center;
+        margin-top: 5%;
+    }
+
+    .about {
+        width: 65%;
+        margin: 0 auto;
+
+    }
+
+    .soup-gallery {
+        max-width: 60%;
+        margin: 0 auto;
     }
 }

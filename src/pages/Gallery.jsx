@@ -5,6 +5,7 @@ import SoupItem from '../components/SoupItem'
 import chickenorzo from '../../dist/assets/chicken_orzo.jpg'
 import loadedpotato from '../../dist/assets/loaded_baked_potato.jpg'
 import butternut from '../../dist/assets/roast_butternut_squash.jpg'
+import bouillon from '../../dist/assets/bouillon_cubes.jpg'
 
 const soups = [
     {
@@ -23,6 +24,12 @@ const soups = [
         image: butternut,
         title: 'Roaster Butternut Squash',
         description: 'Smooth and velvety with the natural sweetness of roasted butternut squash, a hint of warm spices, and a touch of cream. A cozy, flavorful blend that brings the warmth of fall to every spoonful.',
+        price: ''
+    },
+    {
+        image: bouillon,
+        title: 'Low Sodium Bouillon Cubes',
+        description: 'A savory, flavorful base for soups, stews, and sauces without the extra salt. Perfect for enhancing your dishes with a rich, homemade taste, these cubes provide a healthier option for those watching their sodium intake without compromising on flavor.',
         price: ''
     }
 
