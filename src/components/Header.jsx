@@ -4,7 +4,8 @@ import logo from '../../dist/assets/ssco_logo.png'
 
 function Header() {
     return (
-        <header className="header d-flex flex-row justify-content-between align-items-center mb-3 px-4 py-2">
+
+        <header className="header d-flex flex-column justify-content-between align-items-center mb-3 py-2">
             <NavLink to="/">
                 <img src={logo} alt='simmer soup logo' className='logo '></img>
             </NavLink>

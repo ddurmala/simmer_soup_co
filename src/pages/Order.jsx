@@ -4,17 +4,33 @@ import axios from 'axios'
 const initialFormData = {
     fullName: '',
     email: '',
-    soups: [],
+    phoneNumber: '',
+    soups: {},
     message: '',
     access_key: 'cc106326-f1b1-45ac-a95d-1d9142d536d7'
 }
 
-function Order() {
+const soupOptions = [
+    "Bouillon Cubes",
+    "Chicken Orzo",
+    "Loaded Potato",
+    "Butternut Squash"
+];
+
+function Order({ soups = soupOptions }) {
     const [formData, setFormData] = useState(initialFormData)
 
-    const [alertMessage, setAlertMessage] = useState('')
+    const [alertMessage, setAlertMessage] = useState({
+        title: 'Success!',
+        details: 'You will receive an email shortly from Simmer Soup Co. with your total and payment and pickup information'
+    })
 
     const [emailValid, setEmailValid] = useState(true)
+
+    const [phoneValid, setPhoneValid] = useState(true)
+
+    const [formSubmitted, setFormSubmitted] = useState(false)
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -24,19 +40,26 @@ function Order() {
             return
         }
 
+        if (!phoneValid) {
+            setAlertMessage('Please enter a valid phone number')
+            return
+        }
+
+        const formattedSoups = Object.entries(formData.soups)
+            .filter(([_, quantity]) => quantity > 0)
+            .map(([name, quantity]) => `${name}: ${quantity}`)
+            .join(', ');
+
+        const submissionData = {
+            ...formData,
+            soups: formattedSoups
+        };
+
         const url = 'https://api.web3forms.com/submit'
 
-        const res = await axios.post(url, formData)
+        await axios.post(url, submissionData)
 
-        setAlertMessage('Order received! You will receive an email shortly from Simmer Soup Co. with you total and payment/pickup information')
-
-        setFormData({
-            ...initialFormData
-        })
-
-        setTimeout(() => {
-            setAlertMessage('')
-        }, 3500)
+        setFormSubmitted(true);
     }
 
     const handleInputChange = (event) => {
@@ -48,6 +71,23 @@ function Order() {
             setEmailValid(emailPattern.test(value))
         }
 
+        if (name === 'phoneNumber') {
+            let formattedValue = value.replace(/\D/g, '');
+
+            if (formattedValue.length === 10) {
+                formattedValue = `(${formattedValue.slice(0, 3)}) ${formattedValue.slice(3, 6)}-${formattedValue.slice(6)}`;
+                setPhoneValid(true);
+            } else {
+                setPhoneValid(false);
+            }
+
+            setFormData({
+                ...formData,
+                [name]: formattedValue
+            });
+            return;
+        }
+
         setFormData({
             ...formData,
             [name]: value
@@ -55,70 +95,63 @@ function Order() {
     }
 
     const handleSoupChange = (event) => {
-        const { value, checked } = event.target;
+        const { name, value } = event.target;
         setFormData((prevData) => ({
             ...prevData,
-            soups: checked
-                ? [...prevData.soups, value]
-                : prevData.soups.filter((soup) => soup !== value)
+            soups: {
+                ...prevData.soups,
+                [name]: parseInt(value)
+            }
         }))
     }
 
     return (
         <>
-            <h2 className="contact-header text-center mt-5">Order Form</h2>
+            {formSubmitted ? (
+                <div className='alert-message text-center'>
+                    <p className="alert-title">{alertMessage.title}</p>
+                    <p className="alert-details">{alertMessage.details}</p>
+                </div>
 
-            {alertMessage && <p className='alert-message text-center'>{alertMessage}</p>}
+            ) : (
+                <form onSubmit={handleSubmit} className="contact-form d-flex flex-column mt-3">
 
-            <form onSubmit={handleSubmit} className="contact-form d-flex flex-column mt-3">
+                    <h2 className="contact-header text-center mt-5">Order Form</h2>
 
-                <input onChange={handleInputChange} value={formData.fullName} name="fullName" type="text" placeholder="your full name" required className='form-input' />
+                    <input onChange={handleInputChange} value={formData.fullName} name="fullName" type="text" placeholder="your full name" required className='form-input' />
 
-                <input onChange={handleInputChange} value={formData.email} name="email" type="email" placeholder="your email address" required className='form-input' />
+                    <input onChange={handleInputChange} value={formData.email} name="email" type="email" placeholder="your email address" required className='form-input' />
 
-                {/* Soup Choices */}
+                    <input onChange={handleInputChange} value={formData.phoneNumber} name="phoneNumber" type="text" placeholder="your phone number" required className='form-input' />
 
-                <fieldset className="soup-options my-4">
-                    <legend>Select Soups (You can choose multiple):</legend>
-                    <label>
-                        <input className='checkbox'
-                            type="checkbox"
-                            value="Bouillon Cubes"
-                            checked={formData.soups.includes("Bouillon Cubes")}
-                            onChange={handleSoupChange}
-                        /> Low Sodium Bouillon Cubes
-                    </label>
-                    <label>
-                        <input className='checkbox'
-                            type="checkbox"
-                            value="Chicken Orzo"
-                            checked={formData.soups.includes("Chicken Orzo")}
-                            onChange={handleSoupChange}
-                        /> Chicken Orzo
-                    </label>
-                    <label>
-                        <input className='checkbox'
-                            type="checkbox"
-                            value="Loaded Potato"
-                            checked={formData.soups.includes("Loaded Potato")}
-                            onChange={handleSoupChange}
-                        /> Loaded Baked Potato
-                    </label>
-                    <label>
-                        <input className='checkbox'
-                            type="checkbox"
-                            value="Butternut Squash"
-                            checked={formData.soups.includes("Butternut Squash")}
-                            onChange={handleSoupChange}
-                        /> Roasted Butternut Squash
-                    </label>
+                    {/* Soup Choices */}
 
-                </fieldset>
+                    <fieldset className="soup-options my-4">
+                        <legend>Select Soups (You can choose multiple):
+                            <br></br>
+                            <p className='note'>All soups come in quart size</p>
+                        </legend>
 
-                <textarea onChange={handleInputChange} value={formData.message} name="message" rows="5" cols="30" placeholder="enter your message (optional)" className='form-input'></textarea>
+                        {soups.map((soup) => (
+                            <label key={soup} className='choice'>
+                                <select name={soup} value={formData.soups[soup] || 0} onChange={handleSoupChange} className='dropdown'>
+                                    <option value={0}>0</option>
+                                    <option value={1}>1</option>
+                                    <option value={2}>2</option>
+                                    <option value={3}>3</option>
+                                    <option value={4}>4</option>
+                                </select>
+                                {soup}
+                            </label>
+                        ))}
 
-                <button>Send</button>
-            </form>
+                    </fieldset>
+
+                    <textarea onChange={handleInputChange} value={formData.message} name="message" rows="5" cols="30" placeholder="enter your message (optional)" className='form-input'></textarea>
+
+                    <button>Send</button>
+                </form>
+            )}
 
         </>
     )
