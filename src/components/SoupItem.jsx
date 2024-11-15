@@ -6,7 +6,7 @@ function SoupItem(props) {
 
         <div className="card p-3">
             <div className="card-image">
-                <figure className="image is-4by3">
+                <figure className="image is-square">
                     <img
                         src={props.data.image} alt='soup'
                     />
