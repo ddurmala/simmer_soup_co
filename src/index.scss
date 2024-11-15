@@ -85,13 +85,21 @@ button {
 // Gallery
 .soup-gallery {
     display: grid;
-    grid-template-columns: repeat(2, 2fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     font-family: $plainfont;
+    margin: 0 auto;
 
     img {
-        height: 100%;
+        height: auto;
+        width: 100%;
         aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+
+    .card {
+        max-width: 400px;
+        margin: 0 auto;
     }
 }
 
@@ -187,7 +195,12 @@ form {
     }
 
     .soup-gallery {
-        max-width: 60%;
-        margin: 0 auto;
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 600px) {
+    .soup-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
