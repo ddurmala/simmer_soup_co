@@ -9,6 +9,7 @@
 
 $plainfont: "Sriracha",
     cursive;
+$fancyfont: 'Magnolia Script';
 
 // Resets
 * {
@@ -23,7 +24,7 @@ body,
 #root {
     height: 100%;
     background-color: rgb(250, 243, 238);
-    font-family: 'Magnolia Script', sans-serif;
+    font-family: $fancyfont, $plainfont;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
