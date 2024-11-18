@@ -129,11 +129,11 @@ function Order({ soups = soupOptions }) {
                     <fieldset className="soup-options my-4">
                         <legend>Select Soups (You can choose multiple):
                             <br></br>
-                            <p className='note'>All soups come in quart size</p>
+                            <p className='note mb-4'>All soups come in quart size</p>
                         </legend>
 
                         {soups.map((soup) => (
-                            <label key={soup} className='choice'>
+                            <label key={soup} className='choice mb-2'>
                                 <select name={soup} value={formData.soups[soup] || 0} onChange={handleSoupChange} className='dropdown'>
                                     <option value={0}>0</option>
                                     <option value={1}>1</option>
@@ -149,7 +149,9 @@ function Order({ soups = soupOptions }) {
 
                     <textarea onChange={handleInputChange} value={formData.message} name="message" rows="5" cols="30" placeholder="enter your message (optional)" className='form-input'></textarea>
 
-                    <button>Send</button>
+                    <div className="is-flex is-justify-content-center mt-4">
+                        <button className='button is-light '>Send</button>
+                    </div>
                 </form>
             )}
 

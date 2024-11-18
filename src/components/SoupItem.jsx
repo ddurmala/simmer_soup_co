@@ -13,9 +13,9 @@ function SoupItem(props) {
                 </figure>
             </div>
             <div className="content p-2">
-                {/* <h5 className="card-title title is-1">{props.data.title}</h5> */}
+                <h5 className="card-title is-size-4 mt-2">{props.data.title}</h5>
                 <p className="card-text">{props.data.description}</p>
-                <p className="card-text"><small className="text-body-secondary">{props.data.technologies}</small></p>
+                <p className="card-price">{props.data.price}</p>
             </div>
 
         </div>

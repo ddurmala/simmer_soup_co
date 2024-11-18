@@ -11,19 +11,25 @@ $plainfont: "Sriracha",
     cursive;
 $fancyfont: 'Magnolia Script';
 
+$richblack: #222020;
+$lightgrey: #D3D2CE;
+$beige: #ebe5d7;
+$olive: #8B814A;
+$rosetaupe: #86615C;
+
 // Resets
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: rgb(33, 31, 31);
+    color: $richblack;
 }
 
 html,
 body,
 #root {
     height: 100%;
-    background-color: rgb(250, 243, 238);
+    background-color: $beige;
     font-family: $fancyfont, $plainfont;
     display: flex;
     flex-direction: column;
@@ -36,7 +42,7 @@ main {
 
 a {
     text-decoration: none;
-    color: rgb(23, 21, 21);
+    color: $richblack;
 }
 
 img {
@@ -81,15 +87,40 @@ button {
     font-size: 3vh;
 }
 
+.section {
+    display: flex;
+    align-items: stretch;
+    gap: 1rem;
+
+    .image-container {
+        flex: 1;
+        display: flex;
+
+        .image {
+            height: 100%;
+            width: auto;
+            object-fit: cover;
+            justify-content: end;
+        }
+    }
+
+    .about-container {
+        flex: 2;
+    }
+}
+
+
+
 // SoupItem Cards
 
 // Gallery
 .soup-gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    max-width: 85%;
+    grid-template-columns: repeat(2, 1fr);
     font-family: $plainfont;
-    margin: 0 auto;
+    margin: 5% auto;
 
     img {
         height: auto;
@@ -101,6 +132,11 @@ button {
         max-width: 400px;
         margin: 0 auto;
     }
+}
+
+.card-title {
+    text-align: center;
+    font-size: 20px;
 }
 
 // Order Page
@@ -154,6 +190,7 @@ form {
 // Footer
 .footer {
     width: 100%;
+    background-color: $beige;
     font-family: $plainfont;
     padding: 1em 0;
     margin-top: auto;
@@ -181,25 +218,35 @@ form {
 
 // Media Queries
 
-@media(min-width: 800px) {
+@media (max-width: 799px) {
 
-    .welcome {
-        text-align: center;
-        margin-top: 5%;
+    .section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        padding: 2rem;
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .image {
+                width: 100%;
+                max-width: 400px;
+                object-fit: cover;
+            }
+        }
+
+        .about-container {
+            flex: 1;
+            text-align: center;
+        }
     }
 
-    .about {
-        width: 65%;
-        margin: 0 auto;
-
-    }
-
-    .soup-gallery {
-        max-width: 70%;
-    }
-}
-
-@media (max-width: 600px) {
     .soup-gallery {
         grid-template-columns: 1fr;
         gap: 15px;
