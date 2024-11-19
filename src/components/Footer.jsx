@@ -3,7 +3,7 @@ function Footer() {
         <footer className="footer mt-5">
             <div className="content is-flex is-align-items-center is-justify-content-center">
 
-                <p className="is-size-5 has-text-weight-semibold mx-3">Simmer Soup Co.</p>
+                <p className="is-size-5 is-size-6-mobile has-text-weight-semibold mx-3">Simmer Soup Co.</p>
 
                 <div className="social-links mx-3">
                     <a
@@ -15,7 +15,7 @@ function Footer() {
                     </a>
                 </div>
 
-                <p className="mx-3">© 2024 Simmer Soup Co. All Rights Reserved.</p>
+                <p className="mx-3 is-size-6-mobile">© 2024 Simmer Soup Co. All Rights Reserved.</p>
 
             </div>
         </footer>
