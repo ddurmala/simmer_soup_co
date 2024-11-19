@@ -24,7 +24,7 @@ function Order({ soups = soupOptions }) {
 
     const [alertMessage, setAlertMessage] = useState({
         title: 'Success!',
-        details: 'You will receive an email shortly from Simmer Soup Co. with your total and payment and pickup information'
+        details: 'You will receive an email shortly from Simmer Soup Co. with your total as well as payment and pickup information'
     })
 
     const [emailValid, setEmailValid] = useState(true)
