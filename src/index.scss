@@ -25,11 +25,16 @@ $rosetaupe: #86615C;
     color: $richblack;
 }
 
+:root {
+    --background-color: #ebe5d7;
+    --font-family: 'Sriracha', sans-serif;
+}
+
 html,
 body,
 #root {
     height: 100%;
-    background-color: $beige;
+    background-color: #ebe5d7;
     font-family: $fancyfont, $plainfont;
     display: flex;
     flex-direction: column;
@@ -259,5 +264,31 @@ form {
 
     img {
         object-fit: contain;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #ebe5d7;
+        --text-color: #222020;
+    }
+
+    .welcome {
+        color: #222020;
+    }
+
+    .card {
+        background-color: whitesmoke;
+
+        .card-title {
+            color: $richblack;
+        }
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: #ebe5d7;
+        --text-color: #222020;
     }
 }
