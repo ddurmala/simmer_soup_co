@@ -223,6 +223,12 @@ form {
 
 // Media Queries
 
+@media (min-width: 800px) {
+    .nav-links {
+        gap: 2rem;
+    }
+}
+
 @media (max-width: 799px) {
 
     .section {
@@ -249,10 +255,6 @@ form {
         .about-container {
             flex: 1;
             text-align: center;
-
-            .about {
-                text-align: left;
-            }
         }
     }
 
