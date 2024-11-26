@@ -12,25 +12,25 @@ const soups = [
         image: chickenorzo,
         title: 'Chicken Orzo',
         description: 'A comforting blend of tender chicken, delicate orzo pasta, and fresh vegetables, simmered in a flavorful broth. Perfectly seasoned for a warm, hearty meal that soothes the soul.',
-        price: ''
+        price: '$10.00'
     },
     {
         image: loadedpotato,
         title: 'Loaded Baked Potato',
         description: 'Rich and creamy with chunks of tender potatoes, crispy bacon, sharp cheddar cheese, and a hint of green onions. All the flavors of a classic baked potato in a comforting, hearty bowl.',
-        price: ''
+        price: '$10.00'
     },
     {
         image: butternut,
         title: 'Roaster Butternut Squash',
         description: 'Smooth and velvety with the natural sweetness of roasted butternut squash, a hint of warm spices, and a touch of cream. A cozy, flavorful blend that brings the warmth of fall to every spoonful.',
-        price: ''
+        price: '$10.00'
     },
     {
         image: bouillon,
         title: 'Low Sodium Bouillon Cubes',
         description: 'A savory, flavorful base for soups, stews, and sauces without the extra salt. Perfect for enhancing your dishes with a rich, homemade taste, these cubes provide a healthier option for those watching their sodium intake without compromising on flavor.',
-        price: ''
+        price: '$22.00'
     }
 
 ]

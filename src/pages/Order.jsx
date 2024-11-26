@@ -13,10 +13,10 @@ const initialFormData = {
 }
 
 const soupOptions = [
-    "Bouillon Cubes",
-    "Chicken Orzo",
-    "Loaded Potato",
-    "Butternut Squash"
+    "Bouillon Cubes - $22 per jar",
+    "1 Quart of Chicken Orzo Soup - $10",
+    "1 Quart of Loaded Potato Soup - $10",
+    "1 Quart of Butternut Squash - $10"
 ];
 
 function Order({ soups = soupOptions }) {
