@@ -11,7 +11,7 @@ $plainfont: "Sriracha",
     cursive;
 $fancyfont: 'Magnolia Script';
 
-$richblack: #222020;
+$richblack: #444242;
 $lightgrey: #D3D2CE;
 $beige: #ebe5d7;
 $olive: #8B814A;
@@ -92,6 +92,10 @@ button {
     font-size: 3vh;
 }
 
+.welcome {
+    color: $richblack;
+}
+
 .section {
     display: flex;
     align-items: stretch;
@@ -100,17 +104,20 @@ button {
     .image-container {
         flex: 1;
         display: flex;
+        justify-content: center;
+        align-items: center;
 
         .image {
-            height: 100%;
-            width: auto;
-            object-fit: cover;
+            height: auto;
+            max-width: 100%;
+            object-fit: contain;
             justify-content: end;
         }
     }
 
     .about-container {
         flex: 2;
+
     }
 }
 
@@ -232,11 +239,6 @@ form {
 @media (min-width: 800px) {
     .nav-links {
         gap: 2rem;
-    }
-
-    .soup-gallery {
-        gap: 5%;
-        justify-content: center;
     }
 }
 
