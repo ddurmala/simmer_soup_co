@@ -118,14 +118,20 @@ button {
 
 // SoupItem Cards
 
+
+
 // Gallery
+
+
 .soup-gallery {
     display: grid;
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
     max-width: 85%;
-    grid-template-columns: repeat(2, 1fr);
     font-family: $plainfont;
-    margin: 5% auto;
+    margin: 0 auto;
+    padding: 2rem;
+    justify-content: center;
 
     img {
         height: auto;
@@ -226,6 +232,11 @@ form {
 @media (min-width: 800px) {
     .nav-links {
         gap: 2rem;
+    }
+
+    .soup-gallery {
+        gap: 5%;
+        justify-content: center;
     }
 }
 
