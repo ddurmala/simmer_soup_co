@@ -22,7 +22,7 @@ const soups = [
     },
     {
         image: butternut,
-        title: 'Roaster Butternut Squash',
+        title: 'Roasted Butternut Squash',
         description: 'Smooth and velvety with the natural sweetness of roasted butternut squash, a hint of warm spices, and a touch of cream. A cozy, flavorful blend that brings the warmth of fall to every spoonful.',
         price: '$10.00'
     },
